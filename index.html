@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>猫道 · maodaosama</title>
+  <meta name="description" content="猫道(maodaosama)的个人小站——个人作品与随想。" />
+  <style>
+    :root {
+      --bg: #0b0e14;
+      --panel: #121722;
+      --panel-2: #1a2230;
+      --text: #e6ebf2;
+      --muted: #9aa7b8;
+      --accent: #7c9cff;
+      --accent-2: #a87cff;
+      --border: #232c3d;
+      --radius: 14px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: "PingFang SC", "Microsoft YaHei", -apple-system, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--accent-2); }
+    .wrap { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+
+    /* 顶部 */
+    header {
+      position: sticky; top: 0; z-index: 10;
+      backdrop-filter: blur(10px);
+      background: rgba(11,14,20,.72);
+      border-bottom: 1px solid var(--border);
+    }
+    nav { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+    .brand { font-weight: 700; letter-spacing: .5px; color: var(--text); }
+    .nav-links a { margin-left: 22px; color: var(--muted); font-size: 15px; }
+    .nav-links a:hover { color: var(--text); }
+
+    /* Hero */
+    .hero { text-align: center; padding: 96px 20px 72px; }
+    .avatar {
+      width: 96px; height: 96px; margin: 0 auto 22px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 42px; font-weight: 800; color: #0b0e14;
+    }
+    .hero h1 { font-size: 42px; letter-spacing: 1px; }
+    .hero p { color: var(--muted); margin-top: 12px; font-size: 18px; }
+    .hero .arrow { display: inline-block; margin-top: 26px; font-size: 20px; color: var(--muted); }
+
+    section { padding: 56px 0; border-top: 1px solid var(--border); }
+    .sec-title { font-size: 26px; margin-bottom: 26px; }
+    .sec-title small { color: var(--muted); font-size: 15px; font-weight: 400; margin-left: 10px; }
+
+    /* 作品卡 */
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+    .card {
+      background: var(--panel); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 22px; transition: transform .18s, border-color .18s;
+    }
+    .card:hover { transform: translateY(-4px); border-color: var(--accent); }
+    .card h3 { font-size: 18px; margin-bottom: 8px; }
+    .card p { color: var(--muted); font-size: 14px; }
+    .card .tag { display: inline-block; margin-top: 14px; font-size: 12px; color: var(--accent); background: rgba(124,156,255,.12); padding: 3px 9px; border-radius: 6px; }
+
+    .empty { color: var(--muted); font-size: 14px; }
+
+    /* 联系方式 */
+    .cont { display: flex; flex-wrap: wrap; gap: 14px; }
+    .chip {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--panel-2); border: 1px solid var(--border);
+      padding: 11px 16px; border-radius: 999px; color: var(--text); font-size: 14px;
+    }
+    .chip:hover { border-color: var(--accent-2); }
+
+    footer { text-align: center; color: var(--muted); font-size: 13px; padding: 40px 20px 50px; }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 30px; }
+      .nav-links a { margin-left: 14px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <nav>
+        <div class="brand">猫道 · maodaosama</div>
+        <div class="nav-links">
+          <a href="#works">作品</a>
+          <a href="#about">关于</a>
+          <a href="#contact">联系</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <section class="hero">
+      <div class="avatar">猫</div>
+      <h1>你好,我是 猫道</h1>
+      <p>一只在互联网上闲逛的猫 / 偶尔做点小东西。<br>这里是我的一些作品和碎碎念。</p>
+      <span class="arrow">▼</span>
+    </section>
+
+    <section id="works">
+      <h2 class="sec-title">我的作品<small>点卡片可改成你的项目链接</small></h2>
+      <div class="grid">
+        <a class="card" href="#" target="_blank" rel="noopener">
+          <h3>作品一</h3>
+          <p>这是一个项目占位卡片。把你的项目名、简介和链接改到这里即可。</p>
+          <span class="tag">示例</span>
+        </a>
+        <a class="card" href="#" target="_blank" rel="noopener">
+          <h3>作品二</h3>
+          <p>再来一个占位。可以是你的 GitHub 仓库、写的小工具、或一个链接。</p>
+          <span class="tag">示例</span>
+        </a>
+        <a class="card" href="#" target="_blank" rel="noopener">
+          <h3>作品三</h3>
+          <p>占位卡片。卡片会随鼠标轻微上浮、描边变色,有交互感。</p>
+          <span class="tag">示例</span>
+        </a>
+      </div>
+      <p class="empty" style="margin-top:18px;">想加更多作品,复制上面任意一块卡片改内容即可;想删就删掉整块。</p>
+    </section>
+
+    <section id="about">
+      <h2 class="sec-title">关于我<small>这段随便改</small></h2>
+      <p style="max-width:620px; color:var(--muted);">
+        把这一整段换成你想写的话。比如:我是谁、在做什么、有什么爱好、为什么建这个站。
+        不需要多正式,随口几句也行。改完把 `index.html` 重新上传部署即可。
+      </p>
+    </section>
+
+    <section id="contact">
+      <h2 class="sec-title">联系我<small>改成你的真实联系方式</small></h2>
+      <div class="cont">
+        <a class="chip" href="#" target="_blank" rel="noopener">GitHub</a>
+        <a class="chip" href="mailto:you@example.com">邮箱 you@example.com</a>
+        <a class="chip" href="#" target="_blank" rel="noopener">微博 / 即刻 / 小红书</a>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    © <span id="year"></span> 猫道 maodaosama · 用 ❤ 手搓 · <span id="nav-hint"></span>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // 提示:这个站就是你的 NAS 入口的"不加 nas 的那一半"
+    document.getElementById('nav-hint').textContent = 'maodaosama.cn 本站';
+  </script>
+</body>
+</html>
