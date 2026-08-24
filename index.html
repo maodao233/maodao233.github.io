@@ -1,163 +1,561 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>猫道 · maodaosama</title>
-  <meta name="description" content="猫道(maodaosama)的个人小站——个人作品与随想。" />
-  <style>
-    :root {
-      --bg: #0b0e14;
-      --panel: #121722;
-      --panel-2: #1a2230;
-      --text: #e6ebf2;
-      --muted: #9aa7b8;
-      --accent: #7c9cff;
-      --accent-2: #a87cff;
-      --border: #232c3d;
-      --radius: 14px;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: "PingFang SC", "Microsoft YaHei", -apple-system, "Segoe UI", Roboto, sans-serif;
-      line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
-    }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { color: var(--accent-2); }
-    .wrap { max-width: 960px; margin: 0 auto; padding: 0 20px; }
-
-    /* 顶部 */
-    header {
-      position: sticky; top: 0; z-index: 10;
-      backdrop-filter: blur(10px);
-      background: rgba(11,14,20,.72);
-      border-bottom: 1px solid var(--border);
-    }
-    nav { display: flex; align-items: center; justify-content: space-between; height: 60px; }
-    .brand { font-weight: 700; letter-spacing: .5px; color: var(--text); }
-    .nav-links a { margin-left: 22px; color: var(--muted); font-size: 15px; }
-    .nav-links a:hover { color: var(--text); }
-
-    /* Hero */
-    .hero { text-align: center; padding: 96px 20px 72px; }
-    .avatar {
-      width: 96px; height: 96px; margin: 0 auto 22px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      display: flex; align-items: center; justify-content: center;
-      font-size: 42px; font-weight: 800; color: #0b0e14;
-    }
-    .hero h1 { font-size: 42px; letter-spacing: 1px; }
-    .hero p { color: var(--muted); margin-top: 12px; font-size: 18px; }
-    .hero .arrow { display: inline-block; margin-top: 26px; font-size: 20px; color: var(--muted); }
-
-    section { padding: 56px 0; border-top: 1px solid var(--border); }
-    .sec-title { font-size: 26px; margin-bottom: 26px; }
-    .sec-title small { color: var(--muted); font-size: 15px; font-weight: 400; margin-left: 10px; }
-
-    /* 作品卡 */
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
-    .card {
-      background: var(--panel); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 22px; transition: transform .18s, border-color .18s;
-    }
-    .card:hover { transform: translateY(-4px); border-color: var(--accent); }
-    .card h3 { font-size: 18px; margin-bottom: 8px; }
-    .card p { color: var(--muted); font-size: 14px; }
-    .card .tag { display: inline-block; margin-top: 14px; font-size: 12px; color: var(--accent); background: rgba(124,156,255,.12); padding: 3px 9px; border-radius: 6px; }
-
-    .empty { color: var(--muted); font-size: 14px; }
-
-    /* 联系方式 */
-    .cont { display: flex; flex-wrap: wrap; gap: 14px; }
-    .chip {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: var(--panel-2); border: 1px solid var(--border);
-      padding: 11px 16px; border-radius: 999px; color: var(--text); font-size: 14px;
-    }
-    .chip:hover { border-color: var(--accent-2); }
-
-    footer { text-align: center; color: var(--muted); font-size: 13px; padding: 40px 20px 50px; }
-
-    @media (max-width: 600px) {
-      .hero h1 { font-size: 30px; }
-      .nav-links a { margin-left: 14px; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="猫道(maodaosama)的个人作品集站" />
+	<meta name="keywords" content="personal, portfolio" />
+	<meta name="author" content="猫道 maodaosama" />
+    <title>猫道 · maodaosama</title>
+  <!--favicon-img-->
+   <link rel="icon" type="image/png" href="images/favicon.png">
+   <!--favicon-img-->
+   <!--main css file should not be removed -->
+    <link rel="stylesheet" href="css/index.css">
+    <!--main css file-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
 </head>
 <body>
-  <header>
-    <div class="wrap">
-      <nav>
-        <div class="brand">猫道 · maodaosama</div>
-        <div class="nav-links">
-          <a href="#works">作品</a>
-          <a href="#about">关于</a>
-          <a href="#contact">联系</a>
+    <!--contains all the div-->
+    <div id="all">
+    <!--mouse  follower-->
+        <div class="cursor"></div>
+    <!--mouse  follower-->
+    <!--loader-->
+        <div id="loader">
+            <span class="color">猫道</span>maodaosama
         </div>
-      </nav>
+    <!--loader-end-->
+    <!--link-screen-->
+        <div id="breaker">
+        </div>
+        <div id="breaker-two">
+        </div>
+    <!--link-screen-->
+        <!--Main-Section-->
+        <!--Navigator-fullscreen-->
+        <div id="navigation-content">
+            <div class="logo">
+                <img src="images/willy wonka logo.png" alt="logo" style="transform:scaleY(-1)">
+            </div>
+            <div class="navigation-close">
+                <span class="close-first"></span>
+                <span class="close-second"></span>
+            </div>
+            <div class="navigation-links">
+                <a href="#" data-text="HOME" id="home-link" >HOME</a>
+                <a href="#" data-text="CONTACT" id="contact-link" >CONTACT</a>
+            </div>
+        </div>
+        <!--Navigator-Fullscreen END-->
+          <!--Home Page-->
+        <!--Menubar-->
+        <div id="navigation-bar">
+            <img src="images/willy wonka logo.png" alt="logo" style="transform:scaleY(-1)">
+            <div class="menubar">
+                <span class="first-span"></span>
+                <span class="second-span"></span>
+                <span class="third-span"></span>
+            </div>
+        </div>
+        <!--Menubar End-->
+          <!--Header-->
+        <div id="header">
+            <div id="particles"></div>
+              <!--Social Media Links-->
+            <div class="social-media-links">
+                <!--只保留一个 B 站图标；把 space.bilibili.com 后面的 UID 换成你的-->
+                <a href="https://space.bilibili.com/8481869" target="_blank" rel="noopener">
+                    <svg class="social-media" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="21" height="21" role="img" aria-label="Bilibili"><path d="M17.813 4.653h.854c1.51.054 2.769.578 3.773 1.574 1.004.995 1.524 2.249 1.56 3.76v7.36c-.036 1.51-.556 2.769-1.56 3.773s-2.262 1.524-3.773 1.56H5.333c-1.51-.036-2.769-.556-3.773-1.56S.036 18.858 0 17.347v-7.36c.036-1.511.556-2.765 1.56-3.76 1.004-.996 2.262-1.52 3.773-1.574h.774l-1.174-1.12a1.234 1.234 0 0 1-.373-.906c0-.356.124-.658.373-.907l.027-.027c.267-.249.573-.373.92-.373.347 0 .653.124.92.373L9.653 4.44c.071.071.134.142.187.213h4.267a.836.836 0 0 1 .16-.213l2.853-2.747c.267-.249.573-.373.92-.373.347 0 .662.151.929.4.267.249.391.551.391.907 0 .355-.124.657-.373.906zM5.333 7.24c-.746.018-1.373.276-1.88.773-.506.498-.769 1.13-.786 1.894v7.52c.017.764.28 1.395.786 1.893.507.498 1.134.756 1.88.773h13.334c.746-.017 1.373-.275 1.88-.773.506-.498.769-1.129.786-1.893v-7.52c-.017-.765-.28-1.396-.786-1.894-.507-.497-1.134-.755-1.88-.773zM8 11.107c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c0-.373.129-.689.386-.947.258-.257.574-.386.947-.386zm8 0c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933-.373Z"/></svg>
+                </a>
+            </div>
+            <!--Social Media Links end-->
+            <div class="header-content">
+                <div class="header-content-box">
+                <div class="firstline"><span class="color">猫道 </span>maodaosama</div>
+                <div class="secondline">
+                我是
+            <!--下面这行是你主页轮播的"身份"，改成你自己的标签-->
+            <span class="txt-rotate color" data-period="1200"data-rotate='[ " Designer.", " Freelancer.", " Up." ]'></span>
+            <span class="slash">|</span>
+        </div>
+            <!--邮件/电话图标已移除-->
+            </div>
+            </div>
+            <!--header image-->
+            <div class="header-image">
+            <img src="images/man.jpg" alt="logo">
+            </div>
+            <!--header image end-->
+        </div>
+           <!--Header End-->
+        <!--HomePage End-->
+        <!--Main-Section End-->
+        <!--about-->
+        <div id="about">
+            <div class="color-changer">
+            <div class="color-panel">
+                <img src="images/gear.png" alt="">
+            </div>
+            <div class="color-selector">
+                <div class="heading">Custom Colors</div>
+                <div class="colors">
+                    <ul >
+                    <li>
+                        <a href="#0" class="color-red " title="color-red"></a>
+                    </li>
+                    <li>
+                        <a href="#0" class="color-purple" title="color-purple"></a>
+                    </li>
+                    <li>
+                        <a href="#0" class="color-malt" title="color-malt"></a>
+                    </li>
+                    <li>
+                        <a href="#0" class="color-green" title="color-green"></a>
+                    </li>
+                    <li>
+                        <a href="#0" class="color-blue" title="color-blue"></a>
+                    </li>
+                    <li>
+                        <a href="#0" class="color-orange" title="color-orange"></a>
+                    </li>
+                    </ul>
+                </div>
+            </div>
+            </div>
+            <!--about content-->
+            <div id="about-content">
+                <div class="about-header">
+                    关于 <span class="color">我</span>
+                    <span class ="header-caption">了解 <span class="color">我。</span></span>
+                </div>
+                <div class="about-main">
+            <div class="about-first-paragraph wow">
+            <!--about description 这里改成你的简介-->
+               <span class="about-first-line">
+                    我是个喜欢折腾的
+                    <span class="color">数码爱好者</span>
+                    家在北京,正在学着搭自己的 NAS 和网站。</span>
+                     <br>
+               <span class="about-second-line"> 喜欢研究好玩的技术,也愿意把过程记录下来。这里是我的个人小站,放一些作品和随想。</span>
+            </div>
+            <!--about picture-->
+            <div class="about-img">
+                <img src="images/about.jpg" alt="Your Image">
+            </div>
+            </div>
+
+            </div>
+            <!--services start-->
+            <div id="services">
+                <div class="color-changer">
+                    <div class="color-panel">
+                        <img src="images/gear.png" alt="">
+                    </div>
+                    <div class="color-selector">
+                        <div class="heading">Custom Colors</div>
+                        <div class="colors">
+                            <ul >
+                            <li>
+                                <a href="#0" class="color-red " title="color-red"></a>
+                            </li>
+                            <li>
+                                <a href="#0" class="color-purple" title="color-purple"></a>
+                            </li>
+                            <li>
+                                <a href="#0" class="color-malt" title="color-malt"></a>
+                            </li>
+                            <li>
+                                <a href="#0" class="color-green" title="color-green"></a>
+                            </li>
+                            <li>
+                                <a href="#0" class="color-blue" title="color-blue"></a>
+                            </li>
+                            <li>
+                                <a href="#0" class="color-orange" title="color-orange"></a>
+                            </li>
+                            </ul>
+                        </div>
+                    </div>
+                    </div>
+            <!--services header-->
+                    <div class="services-heading wow">
+                        <span class="color">我的</span> 方向
+                    </div>
+            <!--services header end-->
+            <!--services content 把下面三项改成你的 -->
+                    <div class="services-content">
+                           <div class="service-one service wow">
+                               <div class="service-img">
+                               <img src="images/coding.png" alt="service-one">
+                               </div>
+                               <div class="service-description">
+                                <h2>Web 前端</h2>
+                                <p>用 HTML/CSS/JS 做页面,也喜欢折腾各种好玩的网页效果。</p>
+                               </div>
+                           </div>
+                           <div class="service-two service wow">
+                               <div class="service-img">
+                               <img src="images/instagram.png" alt="service-two">
+                               </div>
+                               <div class="service-description">
+                                <h2>NAS & 自建服务</h2>
+                                <p>搭过极空间 NAS、内网穿透、反向代理,喜欢自建省心的服务。</p>
+                               </div>
+                           </div>
+                           <div class="service-three service wow">
+                            <div class="service-img">
+                               <img src="images/bulb.png" alt="service-three">
+                            </div>
+                            <div class="service-description">
+                                <h2>数码折腾</h2>
+                                <p>研究路由器、软路由、各种小工具,乐于把想法变成现实。</p>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <!--services content end-->
+            <!--services end-->
+            <div id="skills">
+                <div class="skills-header">
+                     我的 <span class="color"> 技能</span>
+                </div>
+                <!--skills content 把下面技能名和百分比换成你的-->
+                <div class="skills-content " style="text-align: center;">
+                    <div class="skill-html skill">
+                        <div class="skill-text">
+                    <div class="html">
+                        HTML/CSS
+                    </div>
+                        </div>
+                    <div class="html-prog wow prog">
+                 <div class="html-progress wow">80%</div>
+                    </div>
+                    </div>
+                    <div class="skill-html skill">
+                        <div class="skill-text">
+                    <div class="html">
+                      JavaScript
+                    </div>
+                        </div>
+                    <div class="html-prog wow prog">
+                 <div class="js-progress wow">70%</div>
+                    </div>
+                    </div>
+                    <div class="skill-html skill">
+                        <div class="skill-text">
+                    <div class="html">
+                        NAS 运维
+                    </div>
+                        </div>
+                    <div class="html-prog wow prog">
+                 <div class="adobe-progress wow">90%</div>
+                    </div>
+                    </div>
+                    <div class="skill-html skill">
+                        <div class="skill-text">
+                    <div class="html">
+                        Linux
+                    </div>
+                        </div>
+                    <div class="html-prog wow prog">
+                 <div class="php-progress wow">75%</div>
+                    </div>
+                    </div>
+                    <div class="skill-html skill">
+                        <div class="skill-text">
+                    <div class="html">
+                        折腾
+                    </div>
+                        </div>
+                    <div class="html-prog wow prog">
+                 <div class="jquery-progress wow">95%</div>
+                    </div>
+                    </div>
+                    <div class="skill-html skill">
+                        <div class="skill-text">
+                    <div class="html">
+                        Python
+                    </div>
+                        </div>
+                    <div class="html-prog wow prog">
+                 <div class="seo-progress wow">60%</div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <!--copyright-section You Can Remove After Downloading-->
+            <div class="footer">
+             <div class="footer-text">
+                 <img src="./images/copyright.png" alt="copyright-img" class="images" height="14px"> 猫道 maodaosama
+             </div>
+            </div>
+    <!--copyright-section-->
+        </div>
+        <!--about end-->
+        <!--portfolio 作品集，把 4 项改成你的作品-->
+        <div id="portfolio">
+            <div class="color-changer">
+                <div class="color-panel">
+                    <img src="images/gear.png" alt="">
+                </div>
+                <div class="color-selector">
+                    <div class="heading">Custom Colors</div>
+                    <div class="colors">
+                        <ul >
+                        <li>
+                            <a href="#0" class="color-red " title="color-red"></a>
+                        </li>
+                        <li>
+                            <a href="#0" class="color-purple" title="color-purple"></a>
+                        </li>
+                        <li>
+                            <a href="#0" class="color-malt" title="color-malt"></a>
+                        </li>
+                        <li>
+                            <a href="#0" class="color-green" title="color-green"></a>
+                        </li>
+                        <li>
+                            <a href="#0" class="color-blue" title="color-blue"></a>
+                        </li>
+                        <li>
+                            <a href="#0" class="color-orange" title="color-orange"></a>
+                        </li>
+                        </ul>
+                    </div>
+                </div>
+                </div>
+            <div class="portfolio-header"> <span class="color"> 我的 </span> 作品
+            <span class ="header-caption"> 一些<span class="color"> 作品</span></span></div>
+             <div id="portfolio-content">
+                 <div class="portfolio portfolio-first">
+                     <div class="portfolio-image">
+                        <img src="images/portfolio-first.jpg" alt="portfolio-first">
+                     </div>
+                     <div class="portfolio-text">
+                         <h2>作品示例一</h2>
+                         <p>把这里改成你的项目:名字、一句话介绍,以及下面的链接。</p>
+                         <div class="button"><a href="#"><button><span class="index"> 查看项目<i class="gg-arrow-right"></i></span></button></a></div>
+                     </div>
+                 </div>
+                 <div class="portfolio portfolio-second">
+                    <div class="portfolio-image">
+                        <img src="images/portfolio-second.jpg" alt="portfolio-second">
+                    </div>
+                    <div class="portfolio-text">
+                        <h2>作品示例二</h2>
+                        <p>把这里改成你的项目:名字、一句话介绍,以及下面的链接。</p>
+                        <div class="button"><a href="#"><button><span class="index"> 查看项目<i class="gg-arrow-right"></i></span></button></a></div>
+                    </div>
+                </div>
+
+                <div class="portfolio portfolio-third">
+                    <div class="portfolio-image">
+                        <img src="images/portfolio-third.jpg" alt="portfolio-third">
+                    </div>
+                    <div class="portfolio-text">
+                        <h2>作品示例三</h2>
+                        <p>把这里改成你的项目:名字、一句话介绍,以及下面的链接。</p>
+                        <div class="button"><a href="#"><button><span class="index"> 查看项目<i class="gg-arrow-right"></i></span></button></a></div>
+                    </div>
+                </div>
+                <div class="portfolio portfolio-fourth">
+                    <div class=" portfolio-image">
+                        <img src="images/portfolio-fourth.jpg" alt="portfolio-fourth">
+                    </div>
+                    <div class="portfolio-text">
+                        <h2>作品示例四</h2>
+                        <p>把这里改成你的项目:名字、一句话介绍,以及下面的链接。</p>
+                        <div class="button"><a href="#"><button><span class="index"> 查看项目<i class="gg-arrow-right"></i></span></button></a></div>
+                    </div>
+                </div>
+                 </div>
+                    <!--copyright-section-->
+            <div class="footer">
+                <div class="footer-text">
+                    <img src="./images/copyright.png" alt="copyright-img" class="images" height="14px"> 猫道 maodaosama
+                </div>
+               </div>
+        <!--copyright-section-->
+             </div>
+        <!--portfolio end-->
+        <!--blog 博客板块，如果不要可以整块删除（从 <div id="blog"> 到对应 </div>）-->
+        <div id="blog">
+            <div class="color-changer">
+                <div class="color-panel">
+                    <img src="images/gear.png" alt="">
+                </div>
+                <div class="color-selector">
+                    <div class="heading">Custom Colors</div>
+                    <div class="colors">
+                        <ul >
+                        <li>
+                            <a href="#0" class="color-red " title="color-red"></a>
+                        </li>
+                        <li>
+                            <a href="#0" class="color-purple" title="color-purple"></a>
+                        </li>
+                        <li>
+                            <a href="#0" class="color-malt" title="color-malt"></a>
+                        </li>
+                        <li>
+                            <a href="#0" class="color-green" title="color-green"></a>
+                        </li>
+                        <li>
+                            <a href="#0" class="color-blue" title="color-blue"></a>
+                        </li>
+                        <li>
+                            <a href="#0" class="color-orange" title="color-orange"></a>
+                        </li>
+                        </ul>
+                    </div>
+                </div>
+                </div>
+        <div class="blog-header"> 博客</span>
+            <span class ="header-caption"> 我的最近<span class="color"> 文章。</span></span></div>
+            <!--blog content 下面 6 篇是占位，改成你的文章或整块删掉-->
+            <div class="blog-content">
+                 <div class="blogs">
+                     <a href="#">
+                     <div class="img">
+                         <img src="images/post-one.jpg" alt="blog-one">
+                        <div class="blog-date">8 May,20</div>
+                     </div>
+                     <div class="blog-text">
+                         <h3>文章占位一</h3>
+                         <p>这里放你的文章标题和摘要。不喜欢博客板块就整块删掉。</p>
+                     </div></a>
+                 </div>
+                 <div class="blogs">
+                    <a href="#">
+                    <div class="img">
+                        <img src="images/post-two.jpg" alt="blog-two">
+                        <div class="blog-date">16 Jan,20</div>
+                    </div>
+                    <div class="blog-text">
+                        <h3>文章占位二</h3>
+                        <p>这里放你的文章标题和摘要。把 6 个卡片的图也换成你的。</p>
+                    </div></a>
+                </div>
+                 <div class="blogs">
+                    <a href="#">
+                    <div class="img">
+                        <img src="images/post-three.jpg" alt="blog-three">
+                        <div class="blog-date">30 Nov,19</div>
+                    </div>
+                    <div class="blog-text">
+                        <h3>文章占位三</h3>
+                        <p>这里放你的文章标题和摘要。</p>
+                    </div></a>
+                </div>
+                <div class="blogs">
+                    <a href="#">
+                    <div class="img">
+                        <img src="images/post-four.jpg" alt="blog-four">
+                        <div class="blog-date">6 Jul,19</div>
+                    </div>
+                    <div class="blog-text">
+                        <h3>文章占位四</h3>
+                        <p>这里放你的文章标题和摘要。</p>
+                    </div></a>
+                </div>
+                <div class="blogs">
+                    <a href="#">
+                    <div class="img">
+                        <img src="images/post-five.jpg" alt="blog-five">
+                        <div class="blog-date">1 Jun,19</div>
+                    </div>
+                    <div class="blog-text">
+                        <h3>文章占位五</h3>
+                        <p>这里放你的文章标题和摘要。</p>
+                    </div></a>
+                </div>
+                <div class="blogs">
+                    <a href="#">
+                    <div class="img">
+                        <img src="images/post-six.jpg" alt="blog-six">
+                        <div class="blog-date">28 Feb,19</div>
+                    </div>
+                    <div class="blog-text">
+                        <h3>文章占位六</h3>
+                        <p>这里放你的文章标题和摘要。</p>
+                    </div></a>
+                </div>
+            </div>
+        <!--copyright-section-->
+               <div class="footer">
+                <div class="footer-text">
+                    <img src="./images/copyright.png" alt="copyright-img" class="images" height="14px"> 猫道 maodaosama
+                </div>
+               </div>
+        <!--copyright-section-->
+        </div>
+        <!--blog end-->
+        <!--contact 联系板块（表单已改为直接发邮件，GitHub Pages 可用）-->
+     <div id="contact">
+        <div class="color-changer">
+            <div class="color-panel">
+                <img src="images/gear.png" alt="">
+            </div>
+            <div class="color-selector">
+                <div class="heading">Custom Colors</div>
+                <div class="colors">
+                    <ul >
+                    <li>
+                        <a href="#0" class="color-red " title="color-red"></a>
+                    </li>
+                    <li>
+                        <a href="#0" class="color-purple" title="color-purple"></a>
+                    </li>
+                    <li>
+                        <a href="#0" class="color-malt" title="color-malt"></a>
+                    </li>
+                    <li>
+                        <a href="#0" class="color-green" title="color-green"></a>
+                    </li>
+                    <li>
+                        <a href="#0" class="color-blue" title="color-blue"></a>
+                    </li>
+                    <li>
+                        <a href="#0" class="color-orange" title="color-orange"></a>
+                    </li>
+                    </ul>
+                </div>
+            </div>
+            </div>
+         <div class="contact-header">联系 <span class="color"> 我</span>
+        <div class="contact-header-caption"> <span class="color"> 和我</span> 聊聊。</div></div>
+        <div class="contact-content">
+            <!--Contact form（点提交会用你的电脑邮件软件发到你邮箱）-->
+             <div class="contact-form">
+                 <div class="form-header">
+                     给我留言
+                 </div>
+                 <form id="myForm" action="mailto:you@example.com" method="post" enctype="text/plain">
+                    <div class="input-line">
+                        <input  id="name" type="text" placeholder="你的名字" class="input-name">
+                        <input id="email" type="email" placeholder="你的邮箱"  class="input-name">
+                    </div>
+                    <input type="text" id="subject" placeholder="主题" class="input-subject">
+                    <textarea id ="body" class="input-textarea" placeholder="想说的话"></textarea>
+                    <button type="submit" value="send">发送</button>
+                 </form>
+             </div>
+            <!--Contact form end（去掉 onclick="sendEmail()"，改为纯 mailto，避免依赖 PHP）-->
+            <!--Contact 右侧信息已移除-->
+        </div>
+                    <!--copyright-section-->
+                    <div class="footer">
+                        <div class="footer-text">
+                            <img src="./images/copyright.png" alt="copyright-img" class="images" height="14px"> 猫道 maodaosama
+                        </div>
+                       </div>
+               <!--copyright-section-->
+     </div>
+        <!--contact end-->
     </div>
-  </header>
-
-  <div class="wrap">
-    <section class="hero">
-      <div class="avatar">猫</div>
-      <h1>你好,我是 猫道</h1>
-      <p>一只在互联网上闲逛的猫 / 偶尔做点小东西。<br>这里是我的一些作品和碎碎念。</p>
-      <span class="arrow">▼</span>
-    </section>
-
-    <section id="works">
-      <h2 class="sec-title">我的作品<small>点卡片可改成你的项目链接</small></h2>
-      <div class="grid">
-        <a class="card" href="#" target="_blank" rel="noopener">
-          <h3>作品一</h3>
-          <p>这是一个项目占位卡片。把你的项目名、简介和链接改到这里即可。</p>
-          <span class="tag">示例</span>
-        </a>
-        <a class="card" href="#" target="_blank" rel="noopener">
-          <h3>作品二</h3>
-          <p>再来一个占位。可以是你的 GitHub 仓库、写的小工具、或一个链接。</p>
-          <span class="tag">示例</span>
-        </a>
-        <a class="card" href="#" target="_blank" rel="noopener">
-          <h3>作品三</h3>
-          <p>占位卡片。卡片会随鼠标轻微上浮、描边变色,有交互感。</p>
-          <span class="tag">示例</span>
-        </a>
-      </div>
-      <p class="empty" style="margin-top:18px;">想加更多作品,复制上面任意一块卡片改内容即可;想删就删掉整块。</p>
-    </section>
-
-    <section id="about">
-      <h2 class="sec-title">关于我<small>这段随便改</small></h2>
-      <p style="max-width:620px; color:var(--muted);">
-        把这一整段换成你想写的话。比如:我是谁、在做什么、有什么爱好、为什么建这个站。
-        不需要多正式,随口几句也行。改完把 `index.html` 重新上传部署即可。
-      </p>
-    </section>
-
-    <section id="contact">
-      <h2 class="sec-title">联系我<small>改成你的真实联系方式</small></h2>
-      <div class="cont">
-        <a class="chip" href="#" target="_blank" rel="noopener">GitHub</a>
-        <a class="chip" href="mailto:you@example.com">邮箱 you@example.com</a>
-        <a class="chip" href="#" target="_blank" rel="noopener">微博 / 即刻 / 小红书</a>
-      </div>
-    </section>
-  </div>
-
-  <footer>
-    © <span id="year"></span> 猫道 maodaosama · 用 ❤ 手搓 · <span id="nav-hint"></span>
-  </footer>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-    // 提示:这个站就是你的 NAS 入口的"不加 nas 的那一半"
-    document.getElementById('nav-hint').textContent = 'maodaosama.cn 本站';
-  </script>
+    <!--all the divisions-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/index.js"></script>
 </body>
 </html>
